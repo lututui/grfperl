@@ -4,7 +4,7 @@ use strict;
 use Fcntl qw(SEEK_SET);
 
 use FindBin qw($RealBin);
-use lib "$RealBin/../";
+use lib $RealBin;
 
 use GRFPerl::Header;
 use GRFPerl::Table;
