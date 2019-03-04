@@ -10,6 +10,11 @@ use GRFPerl::Header;
 use GRFPerl::Table;
 use GRFPerl::Constants qw(GRF_HEADER_SIZE UINT32_SIZE);
 
+###
+#
+# Constructors & Destructors
+#
+###
 sub new {
 	my ($class) = @_;
 	
@@ -45,6 +50,11 @@ sub DESTROY {
 	close $self->{_handle};
 }
 
+###
+#
+# Private methods
+#
+###
 sub _makeHeader {
 	my ($self) = @_;
 	
@@ -66,6 +76,11 @@ sub _makeTable {
 	$self->{_table}->buildEntries($rawTable);
 }
 
+###
+#
+# Public methods
+#
+###
 sub extract {
 	my ($self, @what) = @_;
 	
