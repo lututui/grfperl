@@ -5,7 +5,7 @@ use strict;
 use FindBin qw($RealBin);
 use lib "$RealBin/../";
 use GRFPerl::FileEntry;
-use GRFPerl::Constants qw(UINT32_SIZE UINT8_SIZE GRF_ENTRY_SETTINGS_UNPACK GRF_ENTRY_SETTINGS_UNPACK_SIZE GRF_HEADER_SIZE);
+use GRFPerl::Constants qw(UINT32_SIZE UINT8_SIZE GRF_ENTRY_SETTINGS_UNPACK_SIZE GRF_HEADER_SIZE);
 
 use Compress::Zlib qw(uncompress);
 use Fcntl qw(SEEK_SET);
@@ -38,7 +38,7 @@ sub buildEntries {
 		$self->{entries}->{$fileName} = GRFPerl::FileEntry->new(
 			$fileName,
 			unpack(
-				GRF_ENTRY_SETTINGS_UNPACK, 
+				"L3 C L", 
 				substr($rawTable, $nameEndPos + 1, $nameEndPos + 1 + GRF_ENTRY_SETTINGS_UNPACK_SIZE)
 			)
 		);
