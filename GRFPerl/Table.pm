@@ -1,16 +1,13 @@
 package GRFPerl::Table;
 
 use strict;
-
-use FindBin qw($RealBin);
-use lib $RealBin;
-use GRFPerl::FileEntry;
-use GRFPerl::Constants qw(UINT32_SIZE UINT8_SIZE GRF_ENTRY_SETTINGS_UNPACK_SIZE GRF_HEADER_SIZE);
-
 use Compress::Zlib qw(uncompress);
 use Fcntl qw(SEEK_SET);
 use File::Path qw(make_path);
 use File::Basename qw(dirname);
+
+use GRFPerl::FileEntry;
+use GRFPerl::Constants qw(UINT32_SIZE UINT8_SIZE GRF_ENTRY_SETTINGS_UNPACK_SIZE GRF_HEADER_SIZE);
 
 sub new {
 	my ($class, $packed_size, $unpacked_size) = @_;

@@ -3,9 +3,6 @@ package GRFPerl::GRF;
 use strict;
 use Fcntl qw(SEEK_SET);
 
-use FindBin qw($RealBin);
-use lib $RealBin;
-
 use GRFPerl::Header;
 use GRFPerl::Table;
 use GRFPerl::Constants qw(GRF_HEADER_SIZE UINT32_SIZE);
