@@ -1,4 +1,4 @@
-package grf_constants;
+package GRFPerl::Constants;
 
 use strict;
 

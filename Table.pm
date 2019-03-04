@@ -1,13 +1,16 @@
-package grf_table;
+package GRFPerl::Table;
 
 use strict;
 
 use FindBin qw($RealBin);
-use lib $RealBin;
-use grf_file_entry;
-use grf_constants qw(UINT32_SIZE UINT8_SIZE GRF_ENTRY_SETTINGS_UNPACK GRF_ENTRY_SETTINGS_UNPACK_SIZE);
+use lib "$RealBin/../";
+use GRFPerl::FileEntry;
+use GRFPerl::Constants qw(UINT32_SIZE UINT8_SIZE GRF_ENTRY_SETTINGS_UNPACK GRF_ENTRY_SETTINGS_UNPACK_SIZE GRF_HEADER_SIZE);
 
 use Compress::Zlib qw(uncompress);
+use Fcntl qw(SEEK_SET);
+use File::Path qw(make_path);
+use File::Basename qw(dirname);
 
 sub new {
 	my ($class, $packed_size, $unpacked_size) = @_;
@@ -32,7 +35,7 @@ sub buildEntries {
 		die unsupportedOrCorrupted("During file table parsing") if (($nameEndPos = index($rawTable, "\0")) == -1);
 		$fileName = substr($rawTable, 0, $nameEndPos) =~ s/\\/\//rg;
 		
-		$self->{entries}->{$fileName} = grf_file_entry->new(
+		$self->{entries}->{$fileName} = GRFPerl::FileEntry->new(
 			$fileName,
 			unpack(
 				GRF_ENTRY_SETTINGS_UNPACK, 
@@ -45,11 +48,11 @@ sub buildEntries {
 }
 
 sub extractFiles {
-	my ($self, @targetFiles) = @_;
+	my ($self, $FH, @targetFiles) = @_;
 	
 	foreach my $target (@targetFiles) {
-		if (exists $table->{entries}->{$target}) {
-			my $entry = $table->{entries}->{$target};
+		if (exists $self->{entries}->{$target}) {
+			my $entry = $self->{entries}->{$target};
 			
 			die unsupportedOrCorrupted() unless (seek $FH, GRF_HEADER_SIZE + $entry->{offset}, SEEK_SET);
 			die unsupportedOrCorrupted() unless (read($FH, my $packedFile, $entry->{packed_size}) == $entry->{packed_size});

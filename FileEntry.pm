@@ -1,4 +1,4 @@
-package grf_file_entry;
+package GRFPerl::FileEntry;
 
 use strict;
 

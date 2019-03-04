@@ -1,4 +1,4 @@
-package grf_header;
+package GRFPerl::Header;
 
 use strict;
 
