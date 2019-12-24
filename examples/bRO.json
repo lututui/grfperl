@@ -1,0 +1,101 @@
+{
+	"operations" : 
+		[
+			"extract_from_grf", 
+			"extract_from_root", 
+			"move_0", 
+			"remove_dirs",
+			"run_parsers",
+			"move_1",
+			"remove_files",
+			"apply_utf8"
+		],
+	"extract_from_grf" : 
+		[
+			"data/itemslottable.txt",
+			"data/mapnametable.txt",
+			"data/msgstringtable.txt",
+			"data/questid2display.txt",
+			"data/resnametable.txt",
+			"data/luafiles514/lua files/skillinfoz/skillid.lub",
+			"data/luafiles514/lua files/skillinfoz/skilldescript.lub",
+			"data/luafiles514/lua files/skillinfoz/jobinheritlist.lub",
+			"data/luafiles514/lua files/skillinfoz/skillinfolist.lub",
+			"data/luafiles514/lua files/stateicon/stateiconinfo.lub",
+			"data/luafiles514/lua files/stateicon/efstids.lub",
+			"data/luafiles514/lua files/datainfo/enumvar.lub",
+			"data/luafiles514/lua files/datainfo/addrandomoptionnametable.lub"
+		],
+	"extract_from_root" :
+		[
+			"System/itemInfo.lub"
+		],
+	"move_0" : 
+		{
+			"data/itemslottable.txt" : "tables/bRO/itemslots.txt",
+			"data/mapnametable.txt" : "tables/bRO/maps.txt",
+			"data/msgstringtable.txt" : "tables/bRO/msgstringtable.txt",
+			"data/questid2display.txt" : "tables/bRO/quests.txt",
+			"data/resnametable.txt" : "tables/bRO/resnametable.txt",
+			"data/luafiles514/lua files/skillinfoz/skillid.lub" : "skillid.lua",
+			"data/luafiles514/lua files/skillinfoz/skilldescript.lub" : "skilldescript.lua",
+			"data/luafiles514/lua files/skillinfoz/jobinheritlist.lub" : "jobinheritlist.lua",
+			"data/luafiles514/lua files/skillinfoz/skillinfolist.lub" : "skillinfolist.lua",
+			"data/luafiles514/lua files/stateicon/stateiconinfo.lub" : "stateiconinfo.lua",
+			"data/luafiles514/lua files/stateicon/efstids.lub" : "efstids.lua",
+			"data/luafiles514/lua files/datainfo/enumvar.lub" : "enumvar.lua",
+			"data/luafiles514/lua files/datainfo/addrandomoptionnametable.lub" : "addrandomoptionnametable.lua",
+			"System/itemInfo.lub" : "iteminfo.lua"
+		},
+	"remove_dirs" : [ "data", "System" ],
+	"run_parsers" : 
+		[ 
+			"PARSE_EFSTIDS.lua", 
+			"PARSE_ITEMINFO.lua",
+			"PARSE_OPTIONNAME.lua",
+			"PARSE_SKILLDESCRIPT.lua",
+			"PARSE_SKILLINFOLIST.lua",
+			"PARSE_STATEICONINFO.lua"
+		],
+	"move_1" :
+		{
+			"STATUS_id_handle.txt" : "tables/bRO/STATUS_id_handle.txt",
+			"items.txt" : "tables/bRO/items.txt",
+			"itemsdescriptions.txt" : "tables/bRO/itemsdescriptions.txt",
+			"itemslotcounttable.txt" : "tables/bRO/itemslotcounttable.txt",
+			"item_options.txt" : "tables/bRO/item_options.txt",
+			"skillsdescriptions.txt" : "tables/bRO/skillsdescriptions.txt",
+			"skillnametable.txt" : "tables/bRO/skillnametable.txt",
+			"skillssp.txt" : "tables/bRO/skillssp.txt",
+			"statusnametable.txt" : "tables/bRO/statusnametable.txt"
+		},
+	"remove_files" : 
+		[
+			"addrandomoptionnametable.lua",
+			"efstids.lua",
+			"enumvar.lua",
+			"iteminfo.lua",
+			"jobinheritlist.lua",
+			"skilldescript.lua",
+			"skillid.lua",
+			"skillinfolist.lua",
+			"stateiconinfo.lua"
+		],
+	"apply_utf8" :
+		{
+			"tables/bRO/item_options.txt" : "windows-1252",
+			"tables/bRO/items.txt" : "windows-1252",
+			"tables/bRO/itemsdescriptions.txt" : "windows-1252",
+			"tables/bRO/itemslotcounttable.txt" : "windows-1252",
+			"tables/bRO/itemslots.txt" : "windows-1252",
+			"tables/bRO/maps.txt" : "windows-1252",
+			"tables/bRO/msgstringtable.txt" : "windows-1252",
+			"tables/bRO/quests.txt" : "windows-1252",
+			"tables/bRO/resnametable.txt" : "euc-kr",
+			"tables/bRO/skillnametable.txt" : "windows-1252",
+			"tables/bRO/skillsdescriptions.txt" : "windows-1252",
+			"tables/bRO/skillssp.txt" : "windows-1252",
+			"tables/bRO/STATUS_id_handle.txt" : "windows-1252",
+			"tables/bRO/statusnametable.txt" : "windows-1252"
+		}
+}
